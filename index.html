@@ -33,63 +33,55 @@
       margin-bottom: 10px;
     } */
     .title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3rem auto;
-    padding: 0;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
 
-  .typing-text {
-    display: inline-block;
-    font-size: clamp(2.2rem, 6vw, 4rem);
-    font-weight: 300;
-    color: #444;
-    padding-right: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: fadeIn 1s ease-in-out;
-    position: relative;
-    line-height: 1.2;
-  }
+.typing-text {
+  position: relative;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease;
+  line-height: 1;
+}
 
-  .typing-text span {
-    background: linear-gradient(90deg, #43cea2, #185a9d);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    font-weight: 600;
-    margin-right: 0.6rem;
-    font-size: 1.4em;
-  }
+.typing-text span {
+  margin-right: 0.4rem;
+  font-size: 1.3em;
+  background: linear-gradient(90deg, #43cea2, #185a9d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
 
-  .typing-text::after {
-    content: '';
-    position: absolute;
-    height: 70%;
-    width: 2px;
-    background: rgba(0, 0, 0, 0.4);
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: blink 1s infinite;
-  }
+.typing-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 60%;
+  background: rgba(0, 0, 0, 0.3);
+  animation: blink 1s steps(2, start) infinite;
+}
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
    
 
     .button-group {
