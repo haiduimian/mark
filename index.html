@@ -1,1 +1,258 @@
-<h1>欢迎光临</h1>
+<!-- <!DOCTYPE html> -->
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>青春印记</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f0f4f8, #e2ecf4);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .button-group {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .button-group button {
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 25px;
+      margin: 0 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button-group button:hover {
+      background: #357ab8;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0 5%;
+      margin-bottom: 60px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      text-align: center;
+      font-size: 0.95em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+    #imageModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: zoom-out;
+  transition: opacity 0.3s ease;
+}
+
+#imageModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .button-group button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .gallery-item {
+    border-radius: 8px;
+  }
+
+  .overlay {
+    font-size: 0.85em;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📸 青春印记</h1>
+  </header>
+
+  <div class="button-group">
+    <button onclick="showGallery('style1')">🏕 旅游</button>
+    <button onclick="showGallery('style2')">🎉 人物传记</button>
+    <button onclick="showGallery('style3')">📦 合影</button>
+  </div>
+
+  <div id="style1" class="gallery">
+    <div class="gallery-item">
+      <img src="picture/2018luoyang.jpg" alt="旅行">
+      <div class="overlay">2018 洛阳旅行</div>
+    </div>
+    <div class="gallery-item">
+      <img src="picture/洛阳旅行.jpg" alt="旅行">
+      <div class="overlay">2018 洛阳旅行</div>
+    </div>
+  </div>
+
+  <div id="style2" class="gallery" style="display: none;">
+    <div class="gallery-item">
+      <img src="picture/taotao1.jpg" alt="人物传记">
+      <div class="overlay">威涛</div>
+    </div>
+    <div class="gallery-item">
+      <img src="picture/feifei1.jpg" alt="人物传记">
+      <div class="overlay">飞飞</div>
+    </div>
+     <div class="gallery-item">
+      <img src="picture/feifei2.jpg" alt="人物传记">
+      <div class="overlay">飞飞</div>
+    </div>
+     <div class="gallery-item">
+      <img src="picture/chuanhui1.jpg" alt="人物传记">
+      <div class="overlay">传辉</div>
+    </div>
+     <div class="gallery-item">
+      <img src="picture/xinqiang1.jpg" alt="人物传记">
+      <div class="overlay">新强</div>
+    </div>
+     <div class="gallery-item">
+      <img src="picture/xiaoyan1.jpg" alt="人物传记">
+      <div class="overlay">霄岩</div>
+    </div>
+  </div>
+  <div id="style3" class="gallery" style="display: none;">
+    <div class="gallery-item">
+      <img src="picture/heying1.jpg" alt="合影">
+      <div class="overlay">F4</div>
+    </div>
+    <div class="gallery-item">
+      <img src="picture/heying2.jpg" alt="合影">
+      <div class="overlay">F5</div>
+    </div>
+    <div class="gallery-item">
+      <img src="picture/heying3.jpg" alt="合影">
+      <div class="overlay">小宋合影</div>
+    </div>
+    
+  </div>
+  <div id="imageModal" style="display:none;" onclick="closeModal()">
+    <img id="modalImg" src="" alt="大图预览">
+  </div>
+
+
+
+  <script>
+    function showGallery(styleId) {
+      document.getElementById('style1').style.display = 'none';
+      document.getElementById('style2').style.display = 'none';
+      document.getElementById('style3').style.display = 'none';
+      document.getElementById(styleId).style.display = 'grid';
+    }
+    // 点击图片弹出大图
+document.querySelectorAll('.gallery-item img').forEach(img => {
+  img.addEventListener('click', function (e) {
+    e.stopPropagation();
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    modalImg.src = this.src;
+    modal.style.display = 'flex';
+  });
+});
+
+function closeModal() {
+  document.getElementById('imageModal').style.display = 'none';
+}
+
+  </script>
+
+</body>
+</html>
+
